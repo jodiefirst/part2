@@ -19,8 +19,11 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+    
 
 logging:
   level:
+    com.agri.platform: debug
+    org.springframework.jdbc.core: debug
     root: INFO
-    com.agri.platform: DEBUG
