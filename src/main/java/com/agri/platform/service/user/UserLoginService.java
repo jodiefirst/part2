@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.agri.platform.DTO.UserLoginDTO;
 import com.agri.platform.entity.user.User;
+import com.agri.platform.entity.user.User.AccountStatus;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -51,7 +52,12 @@ public class UserLoginService {
 
         if (!encoder.matches(dto.password(), user.getPasswordHash())) {
             handleLoginFail(user);
-            throw new BizException(HttpStatus.UNAUTHORIZED,"密码错误！");
+            throw new BizException(HttpStatus.UNAUTHORIZED, "密码错误！");
+        }
+        
+        if (user.getAccountStatus() == AccountStatus.PENDING) {
+            user.setAccountStatus(AccountStatus.ACTIVE);
+            userMapper.updateAccountStatus(user);
         }
 
         user.setLoginFailCount(0);
