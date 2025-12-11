@@ -12,7 +12,7 @@ import com.agri.platform.service.user.UserRegisterService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserRegisterController {
     private final UserRegisterService userRegisterService;

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agri.platform.DTO.UserLoginDTO;
+import com.agri.platform.annotation.LoginLog;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.exception.BizException;
 import com.agri.platform.service.user.UserLoginService;
@@ -20,28 +21,29 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/user")
 @RequiredArgsConstructor
 @Slf4j
 public class UserLoginController {
     private final UserLoginService loginService;
 
+    @LoginLog
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLoginDTO loginDTO, HttpServletRequest request) {
         try {
             String clientIp = getClientIp(request);
             loginDTO = new UserLoginDTO(loginDTO.login(), loginDTO.password(), loginDTO.type(), clientIp);
 
-            User user = loginService.loginUser(loginDTO);
+            User user = loginService.loginUser(loginDTO, request);
 
             LoginResponse response = new LoginResponse(user.getUserId(), user.getUsername(), user.getEmail(), user.getPhoneNumber(), user.getLastLoginTime(), "登录成功");
             return ResponseEntity.ok(response);
         } catch (BizException e) {
             log.warn("登录业务异常：{}", e.getMessage());
-            return ResponseEntity.status(e.getStatus()).body(new ErrorResponse("Error", e.getMessage()));
+            return ResponseEntity.status(e.getStatus()).body(new ErrorResponse("Error", loginDTO.login(), e.getMessage()));
         } catch (Exception e) {
             log.error("登录系统异常", e);   
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("Error", "系统异常，请稍后再试"));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("Error", loginDTO.login(), "系统异常，请稍后再试"));
         }
     }
 
@@ -62,7 +64,7 @@ public class UserLoginController {
         return ip;
     }
 
-    record LoginResponse(
+    public record LoginResponse(
             String userId,
             String username,
             String email,
@@ -73,6 +75,7 @@ public class UserLoginController {
     
     public record ErrorResponse(
             String code,
+            String login,
             String message
     ) {
     }
