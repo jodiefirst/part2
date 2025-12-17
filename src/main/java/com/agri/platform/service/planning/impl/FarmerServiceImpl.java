@@ -1,8 +1,8 @@
-package com.agri.platform.service.impl;
+package com.agri.platform.service.planning.impl;
 
-import com.agri.platform.entity.Farmer;
-import com.agri.platform.mapper.FarmerMapper;
-import com.agri.platform.service.FarmerService;
+import com.agri.platform.entity.planning.Farmer;
+import com.agri.platform.mapper.planning.FarmerMapper;
+import com.agri.platform.service.planning.FarmerService;
 import org.springframework.stereotype.Service;
 import jakarta.annotation.Resource; // 修改这行，使用jakarta包
 

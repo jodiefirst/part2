@@ -1,6 +1,6 @@
-package com.agri.platform.service;
+package com.agri.platform.service.planning;
 
-import com.agri.platform.entity.Farmer;
+import com.agri.platform.entity.planning.Farmer;
 
 public interface FarmerService {
     // 根据农场主ID查询

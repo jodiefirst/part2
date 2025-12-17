@@ -1,8 +1,8 @@
-package com.agri.platform.service.impl;
+package com.agri.platform.service.planning.impl;
 
-import com.agri.platform.entity.Land;
-import com.agri.platform.mapper.LandMapper;
-import com.agri.platform.service.LandService;
+import com.agri.platform.entity.planning.Land;
+import com.agri.platform.mapper.planning.LandMapper;
+import com.agri.platform.service.planning.LandService;
 import org.springframework.stereotype.Service;
 import jakarta.annotation.Resource;
 import java.util.List;

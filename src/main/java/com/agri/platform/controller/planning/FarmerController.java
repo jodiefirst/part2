@@ -1,8 +1,8 @@
-package com.agri.platform.controller;
+package com.agri.platform.controller.planning;
 
 import com.agri.platform.common.Result;
-import com.agri.platform.entity.Farmer;
-import com.agri.platform.service.FarmerService;
+import com.agri.platform.entity.planning.Farmer;
+import com.agri.platform.service.planning.FarmerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

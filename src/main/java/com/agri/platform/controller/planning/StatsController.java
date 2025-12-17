@@ -1,7 +1,7 @@
-package com.agri.platform.controller;
+package com.agri.platform.controller.planning;
 
-import com.agri.platform.dto.StatsDTO;
-import com.agri.platform.service.StatsService;
+import com.agri.platform.DTO.planning.StatsDTO;
+import com.agri.platform.service.planning.StatsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

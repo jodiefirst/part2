@@ -1,6 +1,6 @@
-package com.agri.platform.service;
+package com.agri.platform.service.planning;
 
-import com.agri.platform.entity.Land;
+import com.agri.platform.entity.planning.Land;
 import java.util.List;
 
 public interface LandService {

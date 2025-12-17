@@ -68,7 +68,7 @@
             <span class="hidden md:inline-block text-sm text-gray-600" id="current-time"></span>
             <div class="flex items-center space-x-2">
                 <img src="https://picsum.photos/id/1005/40/40" alt="用户头像" class="w-8 h-8 rounded-full object-cover">
-                <span class="text-sm font-medium">农场主A</span>
+                <span class="text-sm font-medium" id="top-username">农场主A</span>
             </div>
         </div>
     </div>
@@ -1970,6 +1970,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('所有功能初始化完成');
 });
+// 在页面加载时读取localStorage中的用户信息并显示
+window.addEventListener('DOMContentLoaded', () => {
+    const username = localStorage.getItem('uname');
+    if (username) {
+        document.getElementById('top-username').textContent = username;
+    }
+});
+
 </script>
 </body>
 </html>

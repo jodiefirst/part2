@@ -1,4 +1,4 @@
-package com.agri.platform.dto;
+package com.agri.platform.DTO.planning;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

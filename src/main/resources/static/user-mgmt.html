@@ -257,8 +257,13 @@
             sections.forEach(s => s.classList.add('section-hidden'));
             document.getElementById(id).classList.remove('section-hidden');
         }));
-        // 默认显示登录
-        navs[0].click();
+        // 先检查是否已登录，如果已登录直接跳转到业务首页
+        if (localStorage.getItem('uid')) {
+            location.href = 'planning-mgmt.html';
+        } else {
+            // 默认显示登录
+            navs[0].click();
+        }
 
         /* ---------- 顶部时间 ---------- */
         const tick = () => document.getElementById('current-time').textContent = new Date().toLocaleString('zh-CN');
@@ -281,6 +286,7 @@
                 // navs[3].click();
 
                 // TODO 修改成登录成功后跳转到业务首页
+                location.href = 'planning-mgmt.html';
                 // location.href = 'index.html'; // 回业务首页
             } catch (e) {
                 // showToast('登录失败：' + e.message); 

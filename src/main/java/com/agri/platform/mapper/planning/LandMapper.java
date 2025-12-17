@@ -1,6 +1,6 @@
-package com.agri.platform.mapper;
+package com.agri.platform.mapper.planning;
 
-import com.agri.platform.entity.Land;
+import com.agri.platform.entity.planning.Land;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 

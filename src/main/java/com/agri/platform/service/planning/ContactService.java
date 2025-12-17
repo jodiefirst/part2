@@ -1,7 +1,7 @@
-package com.agri.platform.service;
+package com.agri.platform.service.planning;
 
-import com.agri.platform.entity.Contact;
-import com.agri.platform.mapper.ContactMapper;
+import com.agri.platform.entity.planning.Contact;
+import com.agri.platform.mapper.planning.ContactMapper;
 import org.springframework.stereotype.Service;
 import jakarta.annotation.Resource;
 import java.time.LocalDateTime;

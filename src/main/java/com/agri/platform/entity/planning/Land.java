@@ -1,4 +1,4 @@
-package com.agri.platform.entity;
+package com.agri.platform.entity.planning;
 
 import lombok.Data;
 import java.math.BigDecimal;

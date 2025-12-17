@@ -1,8 +1,8 @@
-package com.agri.platform.controller;
+package com.agri.platform.controller.planning;
 
-import com.agri.platform.dto.ContactDTO;  // 引入DTO（核心优化）
-import com.agri.platform.entity.Contact;
-import com.agri.platform.service.ContactService;
+import com.agri.platform.DTO.planning.ContactDTO;  // 引入DTO（核心优化）
+import com.agri.platform.entity.planning.Contact;
+import com.agri.platform.service.planning.ContactService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.agri.platform.dto;
+package com.agri.platform.DTO.planning;
 
 import lombok.Data;
 import jakarta.validation.constraints.NotBlank;

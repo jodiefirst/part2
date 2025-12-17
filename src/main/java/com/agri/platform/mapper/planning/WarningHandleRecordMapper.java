@@ -1,9 +1,7 @@
 package com.agri.platform.mapper.planning;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.agri.platform.entity.planning.WarningHandleRecord;
-
+import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
@@ -14,4 +12,7 @@ public interface WarningHandleRecordMapper {
     int insert(WarningHandleRecord record);
     int update(WarningHandleRecord record);
     int deleteById(Long recordId);
+    
+    // 添加获取所有处理记录的方法
+    List<WarningHandleRecord> selectAll();
 }
