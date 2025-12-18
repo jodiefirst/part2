@@ -18,11 +18,11 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.jdbc.SQL;
 
-import com.agri.platform.DTO.UserRoleDTO;
-import com.agri.platform.DTO.UserUpdateDTO;
-import com.agri.platform.DTO.RolePermDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.entity.user.Role;
+import com.agri.platform.DTO.user.RolePermDTO;
+import com.agri.platform.DTO.user.UserRoleDTO;
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.entity.user.Permission;
 
 @Mapper

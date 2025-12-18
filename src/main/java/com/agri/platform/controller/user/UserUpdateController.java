@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.agri.platform.DTO.UserUpdateDTO;
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.service.user.UserUpdateService;
 
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.agri.platform.service.user;
 
-import com.agri.platform.DTO.UserLoginDTO;
+import com.agri.platform.DTO.user.UserLoginDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.enums.UserLoginType;
 import com.agri.platform.exception.BizException;

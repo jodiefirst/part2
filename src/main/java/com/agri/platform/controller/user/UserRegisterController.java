@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.agri.platform.DTO.UserRegisterDTO;
+import com.agri.platform.DTO.user.UserRegisterDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.service.user.UserRegisterService;
 

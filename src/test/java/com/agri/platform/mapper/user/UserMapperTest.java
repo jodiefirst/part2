@@ -2,9 +2,10 @@ package com.agri.platform.mapper.user;
 
 import com.agri.platform.entity.user.User;
 import com.agri.platform.entity.user.Role;
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.entity.user.Permission;
 import com.agri.platform.entity.user.User.AccountStatus;
-import com.agri.platform.DTO.UserUpdateDTO;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

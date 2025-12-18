@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.agri.platform.DTO.UserLoginDTO;
+import com.agri.platform.DTO.user.UserLoginDTO;
 import com.agri.platform.annotation.LoginLog;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.exception.BizException;

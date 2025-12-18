@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.agri.platform.DTO.UserUpdateDTO;
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.mapper.user.UserMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;

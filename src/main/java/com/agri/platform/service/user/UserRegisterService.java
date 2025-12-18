@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.agri.platform.DTO.UserRegisterDTO;
+import com.agri.platform.DTO.user.UserRegisterDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.exception.BizException;
 import com.agri.platform.mapper.user.UserMapper;

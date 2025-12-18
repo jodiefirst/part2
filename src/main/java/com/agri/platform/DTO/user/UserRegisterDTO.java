@@ -1,4 +1,4 @@
-package com.agri.platform.DTO;
+package com.agri.platform.DTO.user;
 
 import com.agri.platform.enums.UserLoginType;
 

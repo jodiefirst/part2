@@ -1,6 +1,6 @@
 package com.agri.platform.controller.user;
 
-import com.agri.platform.DTO.UserRegisterDTO;
+import com.agri.platform.DTO.user.UserRegisterDTO;
 import com.agri.platform.entity.user.VerifyCode;
 import com.agri.platform.enums.UserLoginType;
 import com.agri.platform.mapper.user.VerifyCodeMapper;

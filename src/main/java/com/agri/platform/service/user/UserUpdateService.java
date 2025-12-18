@@ -1,6 +1,8 @@
 package com.agri.platform.service.user;
 
 import java.util.Optional;
+
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.entity.user.User;
 
 import org.springframework.http.HttpStatus;
@@ -8,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.agri.platform.mapper.user.UserMapper;
-import com.agri.platform.DTO.UserUpdateDTO;
 import com.agri.platform.exception.BizException;
 
 import lombok.RequiredArgsConstructor;

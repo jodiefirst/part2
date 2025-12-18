@@ -1,7 +1,7 @@
 package com.agri.platform.service.user;
 
-import com.agri.platform.DTO.RolePermDTO;
-import com.agri.platform.DTO.UserRoleDTO;
+import com.agri.platform.DTO.user.RolePermDTO;
+import com.agri.platform.DTO.user.UserRoleDTO;
 import com.agri.platform.entity.user.Permission;
 import com.agri.platform.entity.user.Role;
 import com.agri.platform.entity.user.User;

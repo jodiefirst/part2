@@ -2,6 +2,8 @@ package com.agri.platform.controller.user;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.agri.platform.DTO.user.RolePermDTO;
+import com.agri.platform.DTO.user.UserRoleDTO;
 import com.agri.platform.service.user.UserRolePermService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,10 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
-
-import com.agri.platform.DTO.RolePermDTO;
-
-import com.agri.platform.DTO.UserRoleDTO;
 
 @RestController
 @RequestMapping("/api/user")

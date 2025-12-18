@@ -1,4 +1,4 @@
-package com.agri.platform.DTO;
+package com.agri.platform.DTO.user;
 
 public record UserUpdateDTO(
         String userId,

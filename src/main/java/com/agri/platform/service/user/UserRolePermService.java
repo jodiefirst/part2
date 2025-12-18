@@ -6,8 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.UUID;
 
-import com.agri.platform.DTO.RolePermDTO;
-import com.agri.platform.DTO.UserRoleDTO;
 import com.agri.platform.exception.BizException;
 
 import lombok.RequiredArgsConstructor;
@@ -15,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import com.agri.platform.mapper.user.UserMapper;
 import com.agri.platform.entity.user.Role;
+import com.agri.platform.DTO.user.RolePermDTO;
+import com.agri.platform.DTO.user.UserRoleDTO;
 import com.agri.platform.entity.user.Permission;
 
 @Service

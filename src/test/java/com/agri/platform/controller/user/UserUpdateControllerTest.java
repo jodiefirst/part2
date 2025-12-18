@@ -1,6 +1,6 @@
 package com.agri.platform.controller.user;
 
-import com.agri.platform.DTO.UserUpdateDTO;
+import com.agri.platform.DTO.user.UserUpdateDTO;
 import com.agri.platform.entity.user.User;
 import com.agri.platform.mapper.user.UserMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
