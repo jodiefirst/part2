@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>技术顾问 - 查看与提交方案</title>
+</head>
+<body>
+<h1>技术顾问 - 查看与提交方案</h1>
+
+
+<h3>选择土地并查看详情</h3>
+<select id="landSelect"></select>
+<div id="landDetail"></div>
+
+
+<h3>提交技术方案</h3>
+顾问姓名: <input id="advisorName"><br>
+方案内容:<br>
+<textarea id="adviceContent" rows="6" cols="60"></textarea><br>
+<button id="submitAdvice">提交方案</button>
+
+
+<h3>沟通记录</h3>
+<div id="messages"></div>
+发消息: <input id="msgSender" value="advisor"> <input id="msgText">
+<button id="sendMsg">发送</button>
+
+
+<script>
+    const landsApi = '/api/lands';
+    const adviceApi = '/api/advice';
+    async function loadLands(){
+    const res = await fetch(landsApi); const arr = await res.json();
+    const sel = document.getElementById('landSelect'); sel.innerHTML = '';
+    arr.forEach(l => { const o = document.createElement('option'); o.value = l.id; o.text = `${l.landId} (${l.id})`; sel.appendChild(o); });
+    if (arr.length) showLand(arr[0].id);
+    }
+    async function showLand(id){
+    const res = await fetch(landsApi + '/' + id);
+    const l = await res.json();
+    document.getElementById('landDetail').innerText = `土地ID:${l.landId}\n面积:${l.area}\n土壤:${l.soilType}`;
+    loadAdvice(id); loadMessages(id);
+    }
+    async function loadAdvice(landDbId){
+    const res = await fetch(`${adviceApi}/land/${landDbId}`);
+    const arr = await res.json();
+    // simple display
+    console.log(arr);
+    }
+    async function loadMessages(landDbId){
+    const res = await fetch(`${adviceApi}/messages/${landDbId}`);
+    const arr = await res.json();
+    const container = document.getElementById('messages'); container.innerHTML = '';
+    arr.forEach(m => { const d = document.createElement('div'); d.innerText = `[${m.createdAt}] ${m.sender}: ${m.text}`; container.appendChild(d); });
+    }
+
+
+    document.getElementById('landSelect').addEventListener('change', e => showLand(e.target.value));
+
+
+    document.getElementById('submitAdvice').addEventListener('click', async () => {
+    const landId = document.getElementById('landSelect').value;
+    const advisorName = document.getElementById('advisorName').value;
+    const content = document.getElementById('adviceContent').value;
+    if (!landId) { alert('请选择土地'); return; }
+    const payload = { landDbId: Number(landId), advisorName, content };
+    const res = await fetch(adviceApi, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    if (res.ok) { alert('提交成功'); document.getElementById('adviceContent').value=''; loadAdvice(landId); }
+    });
+
+
+    document.getElementById('sendMsg').addEventListener('click', async () => {
+    const landId = document.getElementById('landSelect').value;
+    const sender = document.getElementById('msgSender').value;
+    const text = document.getElementById('msgText').value;
+    const payload = { landDbId: Number(landId), sender, text };
+    const res = await fetch(adviceApi + '/message', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    if (res.ok) { document.getElementById('msgText').value=''; loadMessages(landId); }
+    });
+
+
+    loadLands();
+</script>
+</body>
+</html>

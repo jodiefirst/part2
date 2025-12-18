@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农场主 - 土地管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/theme.js"></script>
+    <link rel="stylesheet" href="/static/css/theme.css">
+</head>
+<body>
+<h1>农场主 - 土地管理</h1>
+
+
+<h3>新增土地</h3>
+<form id="createForm">
+    土地ID: <input name="landId" required><br>
+    面积(平方米): <input name="area" type="number" step="0.01" required><br>
+    土壤类型: <input name="soilType" required><br>
+    附件: <input type="file" name="attachment"><br>
+    <button type="submit">创建</button>
+</form>
+
+
+<h3>已有土地</h3>
+<div id="lands"></div>
+
+
+<script>
+    const api = '/api/lands';
+    async function load() {
+    const res = await fetch(api);
+    const lands = await res.json();
+    const container = document.getElementById('lands');
+    container.innerHTML = '';
+    lands.forEach(l => {
+    const div = document.createElement('div');
+    div.innerHTML = `ID:${l.id} | 土地ID:${l.landId} | 面积:${l.area} | 土壤:${l.soilType} ` +
+    `<button onclick="getSuggestion(${l.id})">生成建议</button>` +
+    (l.attachmentPath? ` <a href="${l.attachmentPath}" target="_blank">附件</a>`: '');
+    container.appendChild(div);
+    });
+    }
+
+
+    async function getSuggestion(id){
+    const r = await fetch(`${api}/${id}/suggestion`);
+    if (!r.ok) { alert('没有建议'); return; }
+    const txt = await r.text();
+    alert(txt);
+    }
+
+
+    document.getElementById('createForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const res = await fetch(api, { method: 'POST', body: data });
+    if (res.ok) { alert('创建成功'); form.reset(); load(); } else { alert('创建失败'); }
+    });
+
+
+    load();
+</script>
+</body>
+</html>
