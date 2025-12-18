@@ -1,9 +1,7 @@
 package com.agri.platform.mapper.planning;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.agri.platform.entity.planning.PlantingPlan;
-
+import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper // 标识为MyBatis Mapper接口
@@ -14,4 +12,6 @@ public interface PlantingPlanMapper {
     int insert(PlantingPlan plan);
     int update(PlantingPlan plan);
     int deleteById(Long id);
+    // 根据土地ID查询种植计划
+    PlantingPlan selectByLandId(Long landId);
 }

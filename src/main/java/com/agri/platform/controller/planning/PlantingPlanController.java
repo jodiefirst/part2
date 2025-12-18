@@ -2,7 +2,6 @@ package com.agri.platform.controller.planning;
 
 import com.agri.platform.entity.planning.PlantingPlan;
 import com.agri.platform.service.planning.PlantingPlanService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

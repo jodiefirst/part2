@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import com.agri.platform.controller.user.UserLoginController.LoginResponse;
 import com.agri.platform.service.user.LoginLogService;
 import com.agri.platform.entity.user.LoginLog;
-import com.agri.platform.util.userRolePermission.WebUtil;
 import lombok.RequiredArgsConstructor;
 
 @Aspect
@@ -51,12 +50,28 @@ public class LoginLogAspect {
         return result;
     }
 
+//    private String getIp(HttpServletRequest request) {
+//        String ip = request.getHeader("X-Forwarded-For");
+//        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+//            ip = request.getHeader("Proxy-Client-IP");
+//        }
+//        return ip.split(",")[0].trim();
+//    }
+
     private String getIp(HttpServletRequest request) {
-        // String ip = request.getHeader("X-Forwarded-For");
-        // if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-        //     ip = request.getHeader("Proxy-Client-IP");
-        // }
-        // return ip.split(",")[0].trim();
-        return WebUtil.getClientIp(request);
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        if (ip != null && ip.contains(",")) {
+            ip = ip.split(",")[0].trim();
+        }
+        return ip;
     }
 }

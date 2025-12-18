@@ -14,4 +14,6 @@ public class PestWarning {
     private String warningReason; // 添加缺失的字段
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+    private String status;
+    private String cropType; // 新增作物类型字段
 }
